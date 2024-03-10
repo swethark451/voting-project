@@ -10,7 +10,7 @@ pipeline {
   stages {         
     stage("Git Checkout"){           
       steps{                
-        git branch: 'main', credentialsId: 'github', url: 'https://github.com/vinayprakash893/docker-voting-aws-ec2-k8s.git'
+        git branch: 'main', credentialsId: 'Github', url: 'https://github.com/swethark451/voting-project'
         echo 'Git Checkout Completed'            
       }        
     }
@@ -50,7 +50,7 @@ pipeline {
     
     stage("kubernetes deployment"){
       steps{
-        sh 'aws eks --region us-east-1 update-kubeconfig --name eksvnydemotestvny1'
+        sh 'aws eks --region us-west-2 update-kubeconfig --name clusterfor-votingapp'
         sh 'kubectl version'
         sh 'kubectl apply -f 4-voting-app-loadbalancerIP'
         echo 'Completed'       
