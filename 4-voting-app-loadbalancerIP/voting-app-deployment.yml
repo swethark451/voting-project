@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: voting-app
-        image: vinayprakash893/vote:latest
+        image: swethark451/vote:latest
         ports:
         - containerPort: 80
