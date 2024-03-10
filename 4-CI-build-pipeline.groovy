@@ -1,20 +1,20 @@
 pipeline {   
   agent any
   environment {     
-    DOCKERHUB_CREDENTIALS= credentials('dockerhubcredentials')     
+    DOCKERHUB_CREDENTIALS= credentials('Docker-credentials')     
   }    
   stages {         
     stage("Git Checkout"){           
       steps{                
-        git branch: 'main', credentialsId: 'github', url: 'https://github.com/vinayprakash893/docker-voting-aws-ec2-k8s.git'
+        git branch: 'main', credentialsId: 'Github', url: 'https://github.com/swethark451/voting-project'
         echo 'Git Checkout Completed'            
       }        
     }
     stage('Build Docker Image') {         
       steps{                
-        sh 'docker build -t vinayprakash893/vote:latest vote/'
-        sh 'docker build -t vinayprakash893/result:latest result/' 
-        sh 'docker build -t vinayprakash893/worker:latest worker/'            
+        sh 'docker build -t swethark451/vote:latest vote/'
+        sh 'docker build -t swethark451/result:latest result/' 
+        sh 'docker build -t swethark451/worker:latest worker/'            
         echo 'Build Image Completed'                
       }           
     }
@@ -26,9 +26,9 @@ pipeline {
     }               
     stage('Push Image to Docker Hub') {         
       steps{                            
-        sh 'docker push vinayprakash893/vote:latest'
-        sh 'docker push vinayprakash893/result:latest'
-        sh 'docker push vinayprakash893/worker:latest'
+        sh 'docker push swethark451/vote:latest'
+        sh 'docker push swethark451/result:latest'
+        sh 'docker push swethark451/worker:latest'
         echo 'Push Image Completed'       
       }           
     }      
