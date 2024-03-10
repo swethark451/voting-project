@@ -20,4 +20,4 @@ spec:
     spec:
       containers:
       - name: worker-app
-        image: vinayprakash893/worker:latest
+        image: swethark451/worker:latest
