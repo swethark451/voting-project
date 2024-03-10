@@ -16,9 +16,9 @@ pipeline {
     }
     stage('Build Docker Image') {         
       steps{                
-        sh 'docker build -t swethark451/vote:latest vote/'
-        sh 'docker build -t swethark451/result:latest result/' 
-        sh 'docker build -t swethark451/worker:latest worker/'            
+        sh 'docker build -t swethark451/vote:latest 3-code-3-app/vote/'
+        sh 'docker build -t swethark451/result:latest 3-code-3-app/result/' 
+        sh 'docker build -t swethark451/worker:latest 3-code-3-app/worker/'            
         echo 'Build Image Completed'                
       }           
     }
