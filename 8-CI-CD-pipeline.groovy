@@ -50,7 +50,7 @@ pipeline {
     
     stage("kubernetes deployment"){
       steps{
-        sh 'aws eks --region us-west-2 update-kubeconfig --name clusterfor-votingapp'
+        sh 'aws eks --region us-west-2 update-kubeconfig --name clusterVote'
         sh 'kubectl version'
         sh 'kubectl apply -f 4-voting-app-loadbalancerIP'
         echo 'Completed'       
